@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:orientation="vertical"
+				android:id="@+id/rel"
+				>
+
+
+    <ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:id="@+id/mainContainer"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"    
+    	android:orientation="vertical">
+    
+   
+                
+        <net.nightwhistler.pageturner.view.bookview.BookView 
+            android:id="@+id/bookView"
+        	android:layout_width="fill_parent"
+            android:layout_marginBottom="15dp"
+	        android:layout_height="fill_parent">
+
+
+                <view class="net.nightwhistler.pageturner.view.bookview.BookView$InnerView"               
+                    android:id="@+id/innerView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="50dp"
+                    />
+                    
+                        
+           
+        </net.nightwhistler.pageturner.view.bookview.BookView>
+	    <net.nightwhistler.pageturner.view.AnimatedImageView
+    	     android:layout_width="fill_parent"
+        	android:layout_height="fill_parent" 
+        	android:id="@+id/dummyView" />
+    
+    </ViewSwitcher>
+    <com.google.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+        android:id="@+id/adView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="a152bf7eb5a90a6"
+        ads:loadAdOnCreate="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal" />
+
+
+    <TextView
+    	android:id="@+id/pageNumberView"
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_alignBottom="@id/mainContainer"
+        />  
+    
+                
+    	<RelativeLayout 
+        	android:id="@+id/myTitleBarLayout" 
+        	android:layout_width="fill_parent" 
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"        
+        	android:layout_alignTop="@id/mainContainer"
+        	android:visibility="gone"
+        	>   
+        	    
+         <TextView
+                android:id="@+id/myTitleBarTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"                
+                android:layout_alignParentTop="true"                             
+                android:background="@color/translucent_black"                
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/opaque_white" />
+        
+          <TextView
+                android:id="@+id/authorField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"                
+                android:textColor="@color/opaque_white"
+                android:layout_below="@id/myTitleBarTextView"                              
+                android:background="@color/translucent_black"                
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                 />     
+         
+           <TextView
+                android:id="@+id/percentageField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/opaque_white"
+                android:text="@string/zero_percent"
+                android:layout_below="@id/authorField"
+                                       
+                android:background="@color/translucent_black"                
+                android:textAppearance="?android:attr/textAppearanceSmall" /> 
+                
+          <SeekBar android:id="@+id/titleProgress"
+        	style="?android:attr/progressBarStyleHorizontal"
+        	android:layout_width="fill_parent"        	
+        	android:layout_height="wrap_content"        
+        	android:layout_below="@id/percentageField"        	        	
+                android:background="@color/translucent_black"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                />
+  </RelativeLayout>
+  
+  <include layout="@layout/media_player_bar" />
+
+</RelativeLayout>
